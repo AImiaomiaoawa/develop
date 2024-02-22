@@ -860,9 +860,11 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const miaomiao = defineEventHandler(async (event) => {
-  const { data } = await $fetch("https://api.currencyapi.com/v3/latest?apikey=eJdPhICJUDBt6B4e4IX6DZ4A9Xos4Z2JRZ8xh2v2");
-  return data;
+const miaomiao = defineEventHandler((event) => {
+  const { name } = useQuery(event);
+  return {
+    message: `Hello, ${name}`
+  };
 });
 
 const miaomiao$1 = /*#__PURE__*/Object.freeze({
