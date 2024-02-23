@@ -1,17 +1,19 @@
+
+import axios from 'axios'
 export default defineEventHandler(async (event) => {
 
-    // handle query params
-    // const { name } = useQuery(event)
+  // // handle query params
+  // const {name} = getQuery(event)
+
+  // // handle post data
+  // const { age } = await useBody(event)
+
+  // return {
+  //   message: `Hello, name ! You are 18 years old.`
+  // }
+
+  // api call with private key
+  const query = await $fetch('https://6a34b00d-bc86-4b94-b5de-8a3e989cdfae.mock.pstmn.io/get?test=222')
   
-    // handle post data
-    // const { age } = await useBody(event)
-  
-    // return {
-    //   message: `Hello, ${name}! You are ${age} years old.`
-    // }
-  
-    // api call with private key
-    const { data } = await $fetch('https://postman-echo.com/get?test=123')
-  
-    return data
-  })
+  return query
+})

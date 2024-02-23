@@ -18,11 +18,16 @@
 </style>
 
 <script setup>
-  // const { data } = await useFetch('/api/ninja?name=mario')
+  // // // below is working and can be used for debugging
+  // const { data } = await useFetch('https://6a34b00d-bc86-4b94-b5de-8a3e989cdfae.mock.pstmn.io/get?test=222')
+ 
+  // const { data } = await useFetch('/api/miaomiao')
+  const q = await useFetch('/api/miaomiao') 
+  const data = q.data
+  console.log(data)
+  console.log(q)
   // const { data } = await useFetch('/api/ninja?name=mario', {
   //   method: 'post',
   //   body: {age: 30}
   // })
-
-  const { data } = await useFetch('/api/miaomiao')
 </script>
