@@ -1,3 +1,6 @@
+<template>
+  <UAccordion :items="items" />
+</template>
 <script setup lang="ts">
 const items = [{
   label: 'Getting Started',
@@ -28,6 +31,3 @@ const items = [{
 }]
 </script>
 
-<template>
-  <UAccordion :items="items" />
-</template>

@@ -40,6 +40,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "C:/Users/i/Documents/GitHub/develop/app.config.ts"
+import cfg0 from "D:/Development/GitHub/develop/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "C:/Users/i/Documents/GitHub/develop/node_modules/nuxt/dist/app/entry.js": {
+  "D:/Development/GitHub/develop/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "C:/Users/i/Documents/GitHub/develop/node_modules/nuxt/dist/app/entry.js"
+    "file": "D:/Development/GitHub/develop/node_modules/nuxt/dist/app/entry.js"
   }
 }

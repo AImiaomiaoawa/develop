@@ -3,28 +3,66 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler, getQuery as getQuery$1, createError, getResponseStatusText } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/h3/dist/index.mjs';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/devalue/index.js';
-import { renderToString } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/vue/server-renderer/index.mjs';
-import { renderSSRHead } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/hookable/dist/index.mjs';
-import { snakeCase } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/scule/dist/index.mjs';
-import { klona } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/radix3/dist/index.mjs';
-import { version, unref } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/vue/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file://C:/Users/i/Documents/GitHub/develop/node_modules/@unhead/shared/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/Development/GitHub/develop/node_modules/h3/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/Development/GitHub/develop/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file://D:/Development/GitHub/develop/node_modules/devalue/index.js';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Development/GitHub/develop/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://D:/Development/GitHub/develop/node_modules/vue/server-renderer/index.mjs';
+import { renderSSRHead } from 'file://D:/Development/GitHub/develop/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Development/GitHub/develop/node_modules/ofetch/dist/node.mjs';
+import destr from 'file://D:/Development/GitHub/develop/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file://D:/Development/GitHub/develop/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://D:/Development/GitHub/develop/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file://D:/Development/GitHub/develop/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file://D:/Development/GitHub/develop/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/Development/GitHub/develop/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file://D:/Development/GitHub/develop/node_modules/ohash/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/Development/GitHub/develop/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/Development/GitHub/develop/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/Development/GitHub/develop/node_modules/radix3/dist/index.mjs';
+import { version, unref } from 'file://D:/Development/GitHub/develop/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file://D:/Development/GitHub/develop/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file://D:/Development/GitHub/develop/node_modules/@unhead/shared/dist/index.mjs';
 
 const r=Object.create(null),E=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return E()[o]??r[o]},has(e,o){const i=E();return o in i||o in r},set(e,o,i){const g=E(!0);return g[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=E(!0);return delete i[o],!0},ownKeys(){const e=E(!0);return Object.keys(e)}}),t=typeof process<"u"&&process.env&&"development"||"",p=[["APPVEYOR"],["AWS_AMPLIFY","AWS_APP_ID",{ci:!0}],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"],["ZEABUR"],["CODESPHERE","CODESPHERE_APP_ID",{ci:!0}],["RAILWAY","RAILWAY_PROJECT_ID"],["RAILWAY","RAILWAY_SERVICE_ID"]];function B(){if(globalThis.process?.env)for(const e of p){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const l=B(),d=l.name;function n(e){return e?e!=="false":!1}const I=globalThis.process?.platform||"",T=n(s.CI)||l.ci!==!1,R=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const C=t==="test"||n(s.TEST);n(s.MINIMAL)||T||C||!R;const a=/^win/i.test(I);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||(R||a)&&s.TERM!=="dumb"||T);const _=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(_?.split(".")[0])||null;const W=globalThis.process||Object.create(null),c={versions:{}};new Proxy(W,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in c)return c[o]}});const A=globalThis.process?.release?.name==="node",L=!!globalThis.Bun||!!globalThis.process?.versions?.bun,D=!!globalThis.Deno,O=!!globalThis.fastly,S=!!globalThis.Netlify,N=!!globalThis.EdgeRuntime,u=globalThis.navigator?.userAgent==="Cloudflare-Workers",b=!!globalThis.__lagon__,F=[[S,"netlify"],[N,"edge-light"],[u,"workerd"],[O,"fastly"],[D,"deno"],[L,"bun"],[A,"node"],[b,"lagon"]];function G(){const e=F.find(o=>o[0]);if(e)return {name:e[1]}}const P=G();P?.name||"";
+
+function getEnv(key, opts) {
+  const envKey = snakeCase(key).toUpperCase();
+  return destr(
+    process.env[opts.prefix + envKey] ?? process.env[opts.altPrefix + envKey]
+  );
+}
+function _isObject(input) {
+  return typeof input === "object" && !Array.isArray(input);
+}
+function applyEnv(obj, opts, parentKey = "") {
+  for (const key in obj) {
+    const subKey = parentKey ? `${parentKey}_${key}` : key;
+    const envValue = getEnv(subKey, opts);
+    if (_isObject(obj[key])) {
+      if (_isObject(envValue)) {
+        obj[key] = { ...obj[key], ...envValue };
+        applyEnv(obj[key], opts, subKey);
+      } else if (envValue === void 0) {
+        applyEnv(obj[key], opts, subKey);
+      } else {
+        obj[key] = envValue ?? obj[key];
+      }
+    } else {
+      obj[key] = envValue ?? obj[key];
+    }
+    if (opts.envExpansion && typeof obj[key] === "string") {
+      obj[key] = _expandFromEnv(obj[key]);
+    }
+  }
+  return obj;
+}
+const envExpandRx = /{{(.*?)}}/g;
+function _expandFromEnv(value) {
+  return value.replace(envExpandRx, (match, key) => {
+    return process.env[key] || match;
+  });
+}
 
 const defineAppConfig = (config) => config;
 
@@ -99,10 +137,13 @@ const _inlineRuntimeConfig = {
   },
   "public": {}
 };
-const ENV_PREFIX = "NITRO_";
-const ENV_PREFIX_ALT = _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
+const envOptions = {
+  prefix: "NITRO_",
+  altPrefix: _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_",
+  envExpansion: _inlineRuntimeConfig.nitro.envExpansion ?? process.env.NITRO_ENV_EXPANSION ?? false
+};
 const _sharedRuntimeConfig = _deepFreeze(
-  _applyEnv(klona(_inlineRuntimeConfig))
+  applyEnv(klona(_inlineRuntimeConfig), envOptions)
 );
 function useRuntimeConfig(event) {
   if (!event) {
@@ -112,35 +153,11 @@ function useRuntimeConfig(event) {
     return event.context.nitro.runtimeConfig;
   }
   const runtimeConfig = klona(_inlineRuntimeConfig);
-  _applyEnv(runtimeConfig);
+  applyEnv(runtimeConfig, envOptions);
   event.context.nitro.runtimeConfig = runtimeConfig;
   return runtimeConfig;
 }
 _deepFreeze(klona(appConfig));
-function _getEnv(key) {
-  const envKey = snakeCase(key).toUpperCase();
-  return destr(
-    process.env[ENV_PREFIX + envKey] ?? process.env[ENV_PREFIX_ALT + envKey]
-  );
-}
-function _isObject(input) {
-  return typeof input === "object" && !Array.isArray(input);
-}
-function _applyEnv(obj, parentKey = "") {
-  for (const key in obj) {
-    const subKey = parentKey ? `${parentKey}_${key}` : key;
-    const envValue = _getEnv(subKey);
-    if (_isObject(obj[key])) {
-      if (_isObject(envValue)) {
-        obj[key] = { ...obj[key], ...envValue };
-      }
-      _applyEnv(obj[key], subKey);
-    } else {
-      obj[key] = envValue ?? obj[key];
-    }
-  }
-  return obj;
-}
 function _deepFreeze(object) {
   const propNames = Object.getOwnPropertyNames(object);
   for (const name of propNames) {
@@ -164,7 +181,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"C:/Users/i/Documents/GitHub/develop/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/Development/GitHub/develop/server/assets"}];
 
 const assets = createStorage();
 
@@ -176,11 +193,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\Users\\i\\Documents\\GitHub\\develop","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\Users\\i\\Documents\\GitHub\\develop\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\Users\\i\\Documents\\GitHub\\develop\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\Users\\i\\Documents\\GitHub\\develop\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\i\\Documents\\GitHub\\develop\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Development\\GitHub\\develop","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Development\\GitHub\\develop\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Development\\GitHub\\develop\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Development\\GitHub\\develop\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Development\\GitHub\\develop\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -201,7 +218,13 @@ function defineCachedFunction(fn, opts = {}) {
   const validate = opts.validate || ((entry) => entry.value !== void 0);
   async function get(key, resolver, shouldInvalidateCache, event) {
     const cacheKey = [opts.base, group, name, key + ".json"].filter(Boolean).join(":").replace(/:\/$/, ":index");
-    const entry = await useStorage().getItem(cacheKey) || {};
+    let entry = await useStorage().getItem(cacheKey) || {};
+    if (typeof entry !== "object") {
+      entry = {};
+      const error = new Error("Malformed data read from cache.");
+      console.error("[nitro] [cache]", error);
+      useNitroApp().captureError(error, { event, tags: ["cache"] });
+    }
     const ttl = (opts.maxAge ?? opts.maxAge ?? 0) * 1e3;
     if (ttl) {
       entry.expires = Date.now() + ttl;
@@ -257,12 +280,12 @@ function defineCachedFunction(fn, opts = {}) {
     return _resolvePromise.then(() => entry);
   }
   return async (...args) => {
-    const shouldBypassCache = opts.shouldBypassCache?.(...args);
+    const shouldBypassCache = await opts.shouldBypassCache?.(...args);
     if (shouldBypassCache) {
       return fn(...args);
     }
     const key = await (opts.getKey || getKey)(...args);
-    const shouldInvalidateCache = opts.shouldInvalidateCache?.(...args);
+    const shouldInvalidateCache = await opts.shouldInvalidateCache?.(...args);
     const entry = await get(
       key,
       () => fn(...args),
@@ -387,6 +410,12 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
         }
       });
       const event = createEvent(reqProxy, resProxy);
+      event.fetch = (url, fetchOptions) => fetchWithEvent(event, url, fetchOptions, {
+        fetch: useNitroApp().localFetch
+      });
+      event.$fetch = (url, fetchOptions) => fetchWithEvent(event, url, fetchOptions, {
+        fetch: globalThis.$fetch
+      });
       event.context = incomingEvent.context;
       const body = await handler(event) || _resSendBody;
       const headers = event.node.res.getHeaders();
@@ -557,11 +586,19 @@ function createRouteRulesHandler(ctx) {
       setHeaders(event, routeRules.headers);
     }
     if (routeRules.redirect) {
-      return sendRedirect(
-        event,
-        routeRules.redirect.to,
-        routeRules.redirect.statusCode
-      );
+      let target = routeRules.redirect.to;
+      if (target.endsWith("/**")) {
+        let targetPath = event.path;
+        const strpBase = routeRules.redirect._redirectStripBase;
+        if (strpBase) {
+          targetPath = withoutBase(targetPath, strpBase);
+        }
+        target = joinURL(target.slice(0, -3), targetPath);
+      } else if (event.path.includes("?")) {
+        const query = getQuery(event.path);
+        target = withQuery(target, query);
+      }
+      return sendRedirect(event, target, routeRules.redirect.statusCode);
     }
     if (routeRules.proxy) {
       let target = routeRules.proxy.to;
@@ -607,24 +644,61 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _XXO2fgBqHy = (function(nitro) {
+const _smZs7KTV6c = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,m=[\"dark\",\"light\"],c=window&&window.localStorage&&window.localStorage.getItem&&window.localStorage.getItem(\"nuxt-color-mode\")||\"system\";let n=c===\"system\"?d():c;const l=e.getAttribute(\"data-color-mode-forced\");l&&(n=l),i(n),a[\"__NUXT_COLOR_MODE__\"]={preference:c,value:n,getColorScheme:d,addColorScheme:i,removeColorScheme:f};function i(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function f(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function r(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function d(){if(a.matchMedia&&r(\"\").media!==\"not all\"){for(const o of m)if(r(\":\"+o).matches)return o}return\"light\"}})();\r\n";
+const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,m=[\"dark\",\"light\"],c=window&&window.localStorage&&window.localStorage.getItem&&window.localStorage.getItem(\"nuxt-color-mode\")||\"system\";let n=c===\"system\"?d():c;const l=e.getAttribute(\"data-color-mode-forced\");l&&(n=l),i(n),a[\"__NUXT_COLOR_MODE__\"]={preference:c,value:n,getColorScheme:d,addColorScheme:i,removeColorScheme:f};function i(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function f(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function r(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function d(){if(a.matchMedia&&r(\"\").media!==\"not all\"){for(const o of m)if(r(\":\"+o).matches)return o}return\"light\"}})();\n";
 
-const _52GhnJugij = (function(nitro) {
+const _SgmrzXhmle = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _XXO2fgBqHy,
-_52GhnJugij
+  _smZs7KTV6c,
+_SgmrzXhmle
 ];
+
+const scheduledTasks = false;
+
+const tasks = {
+  
+};
+
+const __runningTasks__ = {};
+async function runTask(name, {
+  payload = {},
+  context = {}
+} = {}) {
+  if (__runningTasks__[name]) {
+    return __runningTasks__[name];
+  }
+  if (!(name in tasks)) {
+    throw createError({
+      message: `Task \`${name}\` is not available!`,
+      statusCode: 404
+    });
+  }
+  if (!tasks[name].resolve) {
+    throw createError({
+      message: `Task \`${name}\` is not implemented!`,
+      statusCode: 501
+    });
+  }
+  const handler = await tasks[name].resolve();
+  const taskEvent = { name, payload, context };
+  __runningTasks__[name] = handler.run(taskEvent);
+  try {
+    const res = await __runningTasks__[name];
+    return res;
+  } finally {
+    delete __runningTasks__[name];
+  }
+}
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -716,13 +790,13 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-const _lazy_zxHEyP = () => Promise.resolve().then(function () { return miaomiao$1; });
-const _lazy_mkKdym = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_lKVbAn = () => Promise.resolve().then(function () { return miaomiao$1; });
+const _lazy_KVZ8wO = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/miaomiao', handler: _lazy_zxHEyP, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_mkKdym, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_mkKdym, lazy: true, middleware: false, method: undefined }
+  { route: '/api/miaomiao', handler: _lazy_lKVbAn, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_KVZ8wO, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_KVZ8wO, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -869,6 +943,32 @@ server.listen(listenAddress, () => {
     address: typeof _address === "string" ? { socketPath: _address } : { host: "localhost", port: _address.port }
   });
 });
+nitroApp.router.get(
+  "/_nitro/tasks",
+  defineEventHandler(async (event) => {
+    const _tasks = await Promise.all(
+      Object.entries(tasks).map(async ([name, task]) => {
+        const _task = await task.resolve?.();
+        return [name, { description: _task?.meta?.description }];
+      })
+    );
+    return {
+      tasks: Object.fromEntries(_tasks),
+      scheduledTasks
+    };
+  })
+);
+nitroApp.router.use(
+  "/_nitro/tasks/:name",
+  defineEventHandler(async (event) => {
+    const name = getRouterParam(event, "name");
+    const payload = {
+      ...getQuery$1(event),
+      ...await readBody(event).then((r) => r?.payload).catch(() => ({}))
+    };
+    return await runTask(name, { payload });
+  })
+);
 trapUnhandledNodeErrors();
 async function onShutdown(signal) {
   await nitroApp.hooks.callHook("close");
@@ -992,8 +1092,8 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file://C:/Users/i/Documents/GitHub/develop/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file://C:/Users/i/Documents/GitHub/develop/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://D:/Development/GitHub/develop/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://D:/Development/GitHub/develop/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -1091,6 +1191,13 @@ const renderer = defineRenderHandler(async (event) => {
     /* NuxtApp */
     payload: ssrError ? { error: ssrError } : {},
     _payloadReducers: {},
+    modules: /* @__PURE__ */ new Set(),
+    set _registeredComponents(value) {
+      this.modules = value;
+    },
+    get _registeredComponents() {
+      return this.modules;
+    },
     islandContext
   };
   const renderer = ssrContext.noSSR ? await getSPARenderer() : await getSSRRenderer();
@@ -1121,6 +1228,9 @@ const renderer = defineRenderHandler(async (event) => {
     const link = [];
     for (const style in styles) {
       const resource = styles[style];
+      if ("inline" in getQuery(resource.file)) {
+        continue;
+      }
       {
         link.push({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file) });
       }
